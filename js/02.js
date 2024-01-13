@@ -1,21 +1,24 @@
-const ingredients = ['Potatoes', 'Mushrooms', 'Garlic', 'Tomatos', 'Herbs', 'Condiments'];
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const ingredients = ['Potatoes', 'Mushrooms', 'Garlic', 'Tomatoes', 'Herbs', 'Condiments'];
 
-function createElements() {
-  const listItemElements = ingredients.map(ingredient => {
-    const listItem = document.createElement('li');
-    listItem.textContent = ingredient;
-    listItem.classList.add('item');
+    function createElements() {
+      const listItemElements = ingredients.map(ingredient => {
+        const listItem = document.createElement('li');
+        listItem.textContent = ingredient;
+        listItem.classList.add('item');
+        return listItem;
+      });
 
-    return listItem;
+      const listContainerElement = document.getElementById('ingredients');
+
+      if (!listContainerElement) {
+        return;
+      }
+
+      listContainerElement.append(...listItemElements);
+    }
+
+    createElements();
   });
-
-  const listContainerElement = document.getElementById('ingredients');
-
-  if (!listContainerElement) {
-    return;
-  }
-
-  listContainerElement.append(...listItemElements);
-}
-
-createElements();
+</script>
